@@ -17,3 +17,5 @@ const quick_sort = (arr) => {
 
 const my_list = [ 8, 20, -2, 4, -6 ];
 console.log(quick_sort(my_list));
+
+// Big-O = O(nlogn)
