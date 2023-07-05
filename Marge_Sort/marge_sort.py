@@ -1,14 +1,21 @@
 import math
 
 def sort(arr):
-    for i in range(1,len(arr)):
-        number_to_insert = arr[i]
-        j = i - 1
-        while(j >= 0 and arr[j] > number_to_insert):
-            arr[j + 1] = arr[j]
-            j = j - 1
-        arr[j + 1] = number_to_insert
+    if(len(arr) <= 1):
+        return arr
+    pivot = arr.pop()
+    left = []
+    right = []
+    for item in arr:
+        if(item > pivot):
+            right.append(item)
+        else:
+            left.append(item)
+    return sort(left) + [pivot] + sort(right)
             
 my_list = [ 8, 20, -2, 4, -6 ]
-sort(my_list)
-print(my_list)
+
+print(sort(my_list))
+
+square_list2 = [num for num in my_list]
+# print(square_list2)
