@@ -27,23 +27,19 @@ class Solution():
         return lst
 
     def removeDuplicates(self, nums: list[int]) -> int:
-        duplicate_store = {}
-        new_nums = []
-        for i in range(len(nums) - 1):
-            if (nums[i] in duplicate_store):
-                duplicate_store[nums[i]] += 1
-            else:
-                new_nums.append(nums[i])
-                duplicate_store[nums[i]] = 1
-        # print(duplicate_store)
-        return new_nums
+        replace = 1
+        for i in range(1, len(nums)):
+            if nums[i-1] != nums[i]:
+                nums[replace] = nums[i]
+                replace += 1
+        return replace
 
 
 solutions = Solution()
 
 # print(solutions.threeSum([-1, 0, 1, 2, -1, -4]))
 
-print(solutions.removeDuplicates([1, 2, 3, 4, 5, 2, 3, 5]))
+print(solutions.removeDuplicates([1, 1, 2]))
 
 
 def containsDuplicate(nums: list[int]) -> bool:
